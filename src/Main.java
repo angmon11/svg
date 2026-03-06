@@ -2,21 +2,15 @@
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
 
-    public static void main(String[] args) {
-
-        Point a = new Point(0,0);
-        Point b = new Point(3,4);
-        Point c = new Point(1,1);
-        Point d = new Point(5,5);
-
-        Segment s1 = new Segment(a,b);
-        Segment s2 = new Segment(c,d);
-
-        Segment[] segments = {s1, s2};
-
-        Segment longest = Segment.longestSegment(segments);
-
-        System.out.println("Najdłuższy segment: " + longest.length());
+    public static void main(String[] args){
+        Point[] points = new Point[5];
+        points[0]= new Point(2.3F,5.6F);
+        points[1]= new Point(10.5F,12.4F);
+        points[2]= new Point(15.4F,74.2F);
+        points[3]= new Point(72.4F,71.6F);
+        points[4]= new Point(162.4F,51.3F);
+        Polygon p1=new Polygon(points);
+        System.out.println(p1);
+        System.out.println(p1.toSvg());
     }
-
 }
