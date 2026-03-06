@@ -22,4 +22,19 @@ public class Polygon {
         }
         return String.format(Locale.ENGLISH, "<polygon points=\"%s\" style \"fill:lime;stroke:purple;sroke-width:3\" />",pointstring);
     }
+    public BoundingBox boundingBox(){
+        if(points.length == 0) return new BoundingBox(0,0,0,0);
+        float minX = points[0].getX();
+        float maxX = points[0].getX();
+        float minY = points[0].getY();
+        float maxY = points[0].getY();
+
+        for(Point p : points){
+            if(p.getX() < minX) minX = p.getX();
+            if(p.getX() < maxX) maxX = p.getX();
+            if(p.getX() < minY) minY = p.getY();
+            if(p.getX() < minY) maxY = p.getY();
+        }
+        return new BoundingBox(minX,minY,maxX-minX,maxY-minY);
+    }
 }
