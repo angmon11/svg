@@ -5,6 +5,7 @@ public class Polygon {
     private Point[] points;
     public Polygon(Point[] points){
         this.points = points;
+        System.arraycopy(points, 0, this.points,0,points.length);
     }
     public String toString(){
         return "Polygon{points="+ Arrays.toString(points)+"}";
