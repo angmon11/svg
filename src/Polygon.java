@@ -1,12 +1,13 @@
 import java.util.Arrays;
 import java.util.Locale;
 
-public class Polygon {
+public class Polygon extends Shape{
     private Point[] points;
 
-    private Style style;
+    //private Style style;
 
     public Polygon(Point[] points, Style style){
+        super(style);
         this.points = new Point[points.length];
 
         this.style = style;
@@ -29,7 +30,7 @@ public class Polygon {
         for (Point point : points){
             pointstring += point.getX()+","+point.getY()+" ";
         }
-        return String.format(Locale.ENGLISH, "<polygon points=\"%s\" style=\"fill:lime;stroke:purple;sroke-width:3\" />",pointstring, style.toSvg());
+        return String.format(Locale.ENGLISH, "<polygon points=\"%s\" style=\"%s\" />",pointstring, style.toSvg());
     }
     public BoundingBox boundingBox(){
         if(points.length == 0) return new BoundingBox(0,0,0,0);
@@ -45,5 +46,17 @@ public class Polygon {
             if(p.getX() < minY) maxY = p.getY();
         }
         return new BoundingBox(minX,minY,maxX-minX,maxY-minY);
+    }
+
+    public static Polygon square(Segment segment, Style style){
+        Segment perp = segment.perpendicular();
+
+        Point[] pointSquare = new Point[4];
+        pointSquare[0] = segment.getP();
+        pointSquare[1] = perp.getP();
+        pointSquare[2] = segment.getQ();
+        pointSquare[3] = perp.getQ();
+
+        return new Polygon(pointSquare, style);
     }
 }

@@ -20,9 +20,21 @@ public class Main {
                 new Point(10,10)
         });
         SvgScene scene = new SvgScene();
-        scene.addPolygon(p1);
-        scene.addPolygon(p2);
+        scene.addShape(p1);
+        scene.addShape(p2);
         System.out.println(scene.toSvg());
+
+        scene.addShape(Polygon.square(new Segment(
+                new Point(130.0f,100.0f),
+                new Point(100.0f, 140.0f)
+        ), new Style("red","green",3.0)));
+
+        scene.addShape(new Elipse(
+                new Point(100.0f,100.0f),
+                20.0f,50.0f,
+                new Style("blue", "red", 3.0)
+        ));
+
         scene.save("out.svg");
 
         System.out.println(p1.boundingBox());
