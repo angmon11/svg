@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/svg1.iml" filepath="$PROJECT_DIR$/svg1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/svg_decarator/svg_decarator.iml" filepath="$PROJECT_DIR$/svg_decarator/svg_decarator.iml" />
     </modules>
   </component>
 </project>
