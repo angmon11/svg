@@ -1,3 +1,7 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.nio.Buffer;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
@@ -71,6 +75,18 @@ public class Person implements Comparable{
             deathdate = LocalDate.parse(death,formatter);
         }
         return new Person(fname,lname, birthdate, deathdate);
+    }
+    public static List<Person> fromCsv(String path) throws IOException {
+        List<Person> people = new ArrayList<>();
+        BufferedReader file = new BufferedReader(new FileReader(path));
+        file.readLine();
+        String line;
+        while((line = file.readLine()) != null){
+            people.add(fromCsvLine(line));
+        }
+
+        file.close();
+        return people;
     }
 
     public String name(){
