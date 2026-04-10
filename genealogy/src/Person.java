@@ -101,7 +101,7 @@ public class Person implements Comparable{
             }
         }
             file.close();
-            return people;
+            return people; //ebaty ty daun
 
     }
     public String negativeLifespanExceptionMessege(){
