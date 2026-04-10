@@ -1,57 +1,77 @@
 import java.time.LocalDate;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.NoSuchElementException;
-import java.util.Set;
+import java.util.*;
 
-public class Person {
+public class Person implements Comparable{
     private String firstName;
     private String lastName;
     private LocalDate birthday;
-    
     private Set<Person> children = new HashSet<>();
-
-    public Person(String firstName, String lastName, LocalDate birthday) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.birthday = birthday;
-    }
-    public boolean adopt(Person child) {
-        if(child==this) return false;
-        return children.add(child);
-    }
+    private LocalDate death;
     public Person getYoungestChild(){
 //        Iterator<Person> iter = this.children.iterator();
 //        Person now = iter.next();
 //        Person youngest = now;
+//
 //        while(true){
-//            if(youngest.birthday.compareTo(now.birthday) < 0){
-//                youngest = now;
+//            if(youngest.birthday.compareTo(now.birthday)<0){
+//                youngest=now;
 //            }
-//            try{
-//            iter.next();
-//        }catch(NoSuchElementException e){
-//            break;
+//            try {
+//                iter.next();
+//            } catch(NoSuchElementException e){
+//                break;
 //            }
+//
 //        }
-        if(this.children.isEmpty()) return null;
+        if( this.children.isEmpty())return null;
         Person youngest = children.iterator().next();
         for(Person person : children){
-            if(youngest.birthday.compareTo(person.birthday) < 0){
-                youngest = person;
+            if(youngest.compareTo(person)<0){
+                youngest=person;
             }
         }
         return youngest;
     }
 
-    @Override
-    public String toString() {
-        return "Person{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", birthday=" + birthday +
-                '}';
+    public Person(String firstName, String lastName, LocalDate birthday) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.birthday = birthday;
+        this.death = death;
     }
 
+    public Person
+    public boolean adopt(Person child){
+        if(child == this){return false;}
+        return children.add(child);
+    }
+    public List<Person> getChildren(){
+//        List<Person> result = new ArrayList<>();
+//        result.addAll(children);
+//
+//        result.sort(Person::compareTo);
+//        return result;
+        return children.stream().sorted().toList();
+    }
 
+    public String name(){
+        return String.format("%s %s",firstName,lastName);
+    }
+    public int compareTo(Person other){
+        return this.birthday.compareTo(other.birthday);
+    }
+    @Override
+    public String toString() {
+        return "Person{"+
+                " firstName='"+firstName+"'"+
+                " lastName='"+lastName+"'"+
+                " birthday="+birthday+
+                " children="+children+
+                "death ="+death+"}";
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        return 0;
+    }
 }
