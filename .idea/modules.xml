@@ -4,7 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/deaths/deaths.iml" filepath="$PROJECT_DIR$/deaths/deaths.iml" />
       <module fileurl="file://$PROJECT_DIR$/genealogy/genealogy.iml" filepath="$PROJECT_DIR$/genealogy/genealogy.iml" />
-      <module fileurl="file://$PROJECT_DIR$/site/site.iml" filepath="$PROJECT_DIR$/site/site.iml" />
       <module fileurl="file://$PROJECT_DIR$/svg1.iml" filepath="$PROJECT_DIR$/svg1.iml" />
       <module fileurl="file://$PROJECT_DIR$/svg_decarator/svg_decarator.iml" filepath="$PROJECT_DIR$/svg_decarator/svg_decarator.iml" />
     </modules>
