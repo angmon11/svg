@@ -1,0 +1,25 @@
+@startuml
+object "Tomasz Dąbrowski"
+object "Joanna Nowak"
+object "Jan Kowalski"
+object "Kacper Kowalski"
+object "Elżbieta Kowalska"
+object "Alicja Wiśniewska" #FFFF00
+object "Andrzej Kowalski" #FFFF00
+object "Ewa Kowalska" #FFFF00
+object "Krystyna Dąbrowska" #FFFF00
+object "Anna Dąbrowska" #FFFF00
+object "Marek Kowalski" #FFFF00
+"Anna Dąbrowska"<|--"Alicja Wiśniewska"
+"Anna Dąbrowska"<|--"Tomasz Dąbrowski"
+"Andrzej Kowalski"<|--"Kacper Kowalski"
+"Andrzej Kowalski"<|--"Joanna Nowak"
+"Marek Kowalski"<|--"Krystyna Dąbrowska"
+"Marek Kowalski"<|--"Anna Dąbrowska"
+"Marek Kowalski"<|--"Andrzej Kowalski"
+"Ewa Kowalska"<|--"Krystyna Dąbrowska"
+"Ewa Kowalska"<|--"Anna Dąbrowska"
+"Ewa Kowalska"<|--"Andrzej Kowalski"
+"Kacper Kowalski"<|--"Elżbieta Kowalska"
+"Kacper Kowalski"<|--"Jan Kowalski"
+@enduml
