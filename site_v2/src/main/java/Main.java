@@ -9,7 +9,7 @@ public class Main {
     public static void main(String[] args){
         DatabaseConnection db = DatabaseConnection.getInstance();
         try {
-            db.connect("/home/student/AS/svg/site_v2/users.db");
+            db.connect("site_v2/users.db");
             select();
             db.disconnect();
         }catch (SQLException e){
